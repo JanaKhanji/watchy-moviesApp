@@ -1,0 +1,64 @@
+.movieDetail {
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+/* .poster {
+ -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); 
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+} */
+.with-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.detail {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  align-content: center;
+}
+.detail div {
+  padding: 50px;
+}
+.detail img {
+  border-radius: 5px;
+  max-height: 300px;
+  align-self: center;
+}
+.tags {
+  color: rgba(137, 148, 223, 0.801);
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .detail div {
+    padding: 10px;
+  }
+}
+.star {
+  width: 20px;
+}
+@media only screen and (max-width: 350px) {
+  .star {
+    width: 15px;
+  }
+}

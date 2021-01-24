@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
+body {
+  background-image: radial-gradient(#4a5083, #161333);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.App {
+  font-family: "Cairo", Arial, sans-serif;
+  text-align: left;
+  min-height: 77vh;
+  color: white;
+}
+
+/* header */
+.brandName {
+  font-family: "Mansalva", sans-serif;
+  color: white;
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+  font-size: 30px;
+}
+.brandName a:hover {
+  color: white;
+}
+.navbar {
+  /* background-color: rgba(57, 62, 93, 0.7); */
+  min-height: 10vh;
+}
+
+.white {
+  color: white;
+}
+.navbar .noDecoration:hover {
+  text-decoration: none;
+}
+.dropdownLink {
+  color: rgba(57, 62, 93, 0.7);
+}
+.nav-link {
+  display: inline;
+}
+.backImg {
+  width: 25px;
+  cursor: pointer;
+}
+/* main */
+.mainTitle {
+  text-align: left;
+  margin: 20px 30px 10px 30px;
+  border-bottom: 1px solid rgba(57, 62, 93, 0.7);
+}
+/* footer */
+.footer {
+  margin-top: 20px;
+  border-top: 1px solid rgba(57, 62, 93, 0.7);
+  padding: 0;
+}
+.footer a {
+  color: white;
+}
+.footer p {
+  text-align: center;
+  width: 100%;
+}
+
+.rowClass {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* .rowClass a:first-child {
+  width: 100vh;
+  height: 100vh;
+} */

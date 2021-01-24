@@ -1,0 +1,20 @@
+.search-input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+}
+.search-input input {
+  background: transparent;
+  border: none;
+  color: white;
+}
+.search-input input ::placeholder {
+  color: white;
+  opacity: 0.5;
+}
