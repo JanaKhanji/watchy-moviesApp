@@ -3,10 +3,10 @@ import Search from "./searchComponent";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { constructUrl, genresUrl } from "./API";
 import imageSrc from "../assets/img/movie.png";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { StateContext } from "../StateProvider";
 
-export default function Header({ bakcHome }) {
+export default function Header({ backHome }) {
   let genresHTML = [];
   const [state, dispatch] = useContext(StateContext);
 
@@ -34,6 +34,11 @@ export default function Header({ bakcHome }) {
     history.push("/");
   }
 
+  function handelBack() {
+    history.push("/");
+    backHome()
+  }
+
   function handelGenres(query) {
     fetch(genresUrl("discover/movie", query.id))
       .then((response) => response.json())
@@ -47,8 +52,8 @@ export default function Header({ bakcHome }) {
   }
   return (
     <Navbar variant="dark" expand="lg">
-      <Navbar.Brand className="brandName" onClick={bakcHome}>
-        <Link to="/" className="white noDecoration">
+      <Navbar.Brand className="brandName" onClick={handelBack}>
+        <Nav.Link to="/" className="white noDecoration">
           <img
             src={imageSrc}
             width="30"
@@ -57,15 +62,15 @@ export default function Header({ bakcHome }) {
           />{" "}
           <span>w</span>at
           <span style={{ color: "#ff0252" }}>ch</span>y
-        </Link>
+        </Nav.Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Link to="/" onClick={bakcHome} className="white noDecoration">
+          <Nav.Link to="/" onClick={handelBack} className="white">
             Home
-          </Link>
-          <NavDropdown title="Genres" id="basic-nav-dropdown">
+          </Nav.Link>
+          <NavDropdown title="Genres" id="basic-nav-dropdown" className="mr-auto">
             {genresHTML}
           </NavDropdown>
         </Nav>

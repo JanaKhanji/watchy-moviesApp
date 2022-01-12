@@ -7,6 +7,7 @@ import { constructUrl } from "./components/API";
 import MovieDetail from "./components/movieDetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { StateContext } from "./StateProvider";
+import './fontawesome';
 
 export default function App() {
   useEffect(trendings, []);
@@ -25,7 +26,7 @@ export default function App() {
 
   return (
     <Router className="App">
-      <Header bakcHome={trendings} />
+      <Header backHome={trendings} />
       <Switch>
         <Route path="/" exact>
           <Main movies={state.movies} title={state.title} />

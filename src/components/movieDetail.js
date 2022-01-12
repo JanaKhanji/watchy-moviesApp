@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import imageSrc from "../assets/img/movie.png";
-import star from "../assets/img/star.png";
-import starEmpty from "../assets/img/starEmpty.png";
-import back from "../assets/img/back.png";
 import "./movieDetail.css";
 import { useHistory } from "react-router-dom";
 import { constructUrl } from "./API";
 import Main from "./main";
 import { Spin } from "antd";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from "react-bootstrap";
 
 export default function MovieDetail({ match }) {
   useEffect(getData, [match]);
@@ -38,13 +37,12 @@ export default function MovieDetail({ match }) {
     movieDetail.poster_path != null &&
     (imgSrc = "http://image.tmdb.org/t/p/w200/" + movieDetail.poster_path);
   for (let i = 0; i < parseInt(movieDetail.vote_average, 10); i++) {
-    rating.push(<img key={i} className="star" src={star} alt="movie poster" />);
+    rating.push(<FontAwesomeIcon  icon={['fas', 'star']} key={i} className="star" />);
   }
   for (let i = 0; i < 10 - rating.length; i++) {
-    noRating.push(
-      <img key={i} className="star" src={starEmpty} alt="movie poster" />
-    );
+    noRating.push(<FontAwesomeIcon  icon={['far', 'star']} key={i} className="star" />);
   }
+  
   let history = useHistory();
   function handelHistory() {
     history.goBack();
@@ -55,11 +53,11 @@ export default function MovieDetail({ match }) {
       {movieDetail ? (
         <div>
           <div className="detailHeader">
-            <div className="mainTitle with-close">
-              <h2 className="white"> {" " + movieDetail.title}</h2>
-              <span onClick={handelHistory} className="backImg">
-                <img width="25px" src={back} alt="back" />
-              </span>
+            <div className="mainTitle with-close py-2">
+              <Button variant="outline-light" className="mr-2" onClick={handelHistory}>
+                <FontAwesomeIcon  icon={['fas', 'arrow-left']} size="lg" />
+              </Button>
+              <h2 className="white mb-0"> {" " + movieDetail.title}</h2>
             </div>
           </div>
           <div className="detail">
