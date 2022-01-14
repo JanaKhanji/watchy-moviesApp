@@ -9,12 +9,14 @@
   border: 2px solid var(--input-border);
   border-radius: 4px;
 }
+
 .search-input input {
   background: transparent;
   border: none;
   color: white;
 }
-.search-input input ::placeholder {
+
+.form-control:focus {
+  background: transparent;
   color: white;
-  opacity: 0.5;
 }

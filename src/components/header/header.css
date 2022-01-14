@@ -1,0 +1,18 @@
+.dropdown-menu {
+    max-height: 30vh;
+    width: 70vw;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+
+.dropdown-menu.show {
+    display: flex;
+}
+
+.dropdownLink {
+    color: rgba(57, 62, 93, 0.7);
+}
+
+.dropdown-item {
+    width: 150px;
+}

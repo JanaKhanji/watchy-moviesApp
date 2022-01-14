@@ -38,9 +38,7 @@ body {
 .navbar .noDecoration:hover {
   text-decoration: none;
 }
-.dropdownLink {
-  color: rgba(57, 62, 93, 0.7);
-}
+
 .nav-link {
   display: inline;
 }
@@ -67,13 +65,8 @@ body {
   text-align: center;
   width: 100%;
 }
-
 .rowClass {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-/* .rowClass a:first-child {
-  width: 100vh;
-  height: 100vh;
-} */

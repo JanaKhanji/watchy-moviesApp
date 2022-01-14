@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import Search from "./searchComponent";
+import Search from "./component/search/searchComponent";
+import "./header.css";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { constructUrl, genresUrl } from "./API";
-import imageSrc from "../assets/img/movie.png";
+import { constructUrl, genresUrl } from "../API";
+import imageSrc from "../../assets/img/movie.png";
 import { useHistory } from "react-router-dom";
-import { StateContext } from "../StateProvider";
+import { StateContext } from "../../StateProvider";
 
 export default function Header({ backHome }) {
   let genresHTML = [];
@@ -67,15 +68,15 @@ export default function Header({ backHome }) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link to="/" onClick={handelBack} className="white">
+          <Nav.Link to="/" onClick={handelBack} className="text-white">
             Home
           </Nav.Link>
-          <NavDropdown title="Genres" id="basic-nav-dropdown" className="mr-auto">
+          <NavDropdown title="Genres" id="basic-nav-dropdown" className="text-white mr-auto nav-link">
             {genresHTML}
           </NavDropdown>
         </Nav>
         <Nav>
-          <Search />
+          <Search handelBack={handelBack} />
         </Nav>
       </Navbar.Collapse>
     </Navbar>

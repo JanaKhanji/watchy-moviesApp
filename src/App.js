@@ -1,15 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import "./styles.css";
-import Header from "./components/header";
+import Header from "./components/header/header";
 import Footer from "./components/footer";
 import Main from "./components/main";
 import { constructUrl } from "./components/API";
-import MovieDetail from "./components/movieDetail";
+import MovieDetail from "./components/movieDetails/movieDetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { StateContext } from "./StateProvider";
 import './fontawesome';
 
 export default function App() {
+
   useEffect(trendings, []);
   const [state, dispatch] = useContext(StateContext);
   function trendings() {
