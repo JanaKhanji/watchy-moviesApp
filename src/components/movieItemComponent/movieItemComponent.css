@@ -34,7 +34,6 @@
   border: none;
 }
 
-
 @media only screen and (max-width: 600px) {
   .detail {
     display: flex;
@@ -43,6 +42,9 @@
   }
   .detail div {
     padding: 10px;
+  }
+  h2 {
+    font-size: 1.25rem;
   }
 }
 

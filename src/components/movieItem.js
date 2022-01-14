@@ -13,7 +13,7 @@ export default function MovieItem({ movie }) {
 
   return (
     <Link to={`/movieDetail/${movie.id}`}>
-      <Card className="container_foto" style={{}}>
+      <Card className="container_foto m-1" style={{}}>
         <article>
           <h2>{movie.title}</h2>
         </article>

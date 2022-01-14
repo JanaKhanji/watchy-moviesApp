@@ -5,8 +5,7 @@ export default function Footer() {
   return (
     <Navbar sticky="bottom" className="footer">
       <p>
-        Made with <span> ❤ </span>
-        by{" "}
+        Made by{" "}
         <a
           target="_blank"
           rel="noreferrer"

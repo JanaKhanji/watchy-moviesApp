@@ -1,4 +1,6 @@
 import React, { useRef, useContext } from "react";
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { Form, Row, Col } from "react-bootstrap";
 import { constructUrl } from "../../../API";
 import "./searchComponent.css";
@@ -10,20 +12,16 @@ export default function SearchComponent({handelBack}) {
 
   const inputEl = useRef("");
   let history = useHistory();
-  let timer = null;
+  const input = new Subject();
+  input.pipe(debounceTime(1000)).subscribe(handleSubmit);
 
   function handleChange(event) {
-    timer = setTimeout(handleSubmit, 1000);
     inputEl.current = event.target.value;
-  }
-
-  function clearTimer() {
-    if (timer) {
-      clearTimeout(timer);
-    }
+    input.next(null);
   }
 
   function handleSubmit(event) {
+    console.log('submitted');
     const query = inputEl.current;
     if (event) {
       event.preventDefault();
@@ -52,8 +50,7 @@ export default function SearchComponent({handelBack}) {
           <Form.Control
             className="search-input"
             name="search"
-            onKeyUp={handleChange}
-            onKeyDown={clearTimer}
+            onChange={handleChange}
             type="text"
             placeholder="Search for Movies"
           />

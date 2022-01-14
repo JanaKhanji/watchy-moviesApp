@@ -1,13 +1,15 @@
 import React, { useContext, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { constructUrl } from "./components/API";
+import { StateContext } from "./StateProvider";
+
 import "./styles.css";
+import './fontawesome';
+
 import Header from "./components/header/header";
 import Footer from "./components/footer";
 import Main from "./components/main";
-import { constructUrl } from "./components/API";
-import MovieDetail from "./components/movieDetails/movieDetail";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { StateContext } from "./StateProvider";
-import './fontawesome';
+import MovieItemComponent from "./components/movieItemComponent/movieItemComponent";
 
 export default function App() {
 
@@ -26,15 +28,19 @@ export default function App() {
   }
 
   return (
-    <Router className="App">
-      <Header backHome={trendings} />
-      <Switch>
-        <Route path="/" exact>
-          <Main movies={state.movies} title={state.title} />
-        </Route>
-        <Route path="/movieDetail/:id" component={MovieDetail} />
-      </Switch>
-      <Footer />
+    <Router>
+      <div className="App d-flex flex-column justify-content-between">
+        <Header backHome={trendings} />
+        <div className="flex-fill">
+          <Switch>
+            <Route path="/" exact>
+              <Main movies={state.movies} title={state.title} />
+            </Route>
+            <Route path="/movieDetail/:id" component={MovieItemComponent} />
+          </Switch>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 }

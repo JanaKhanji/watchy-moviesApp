@@ -11,7 +11,7 @@ body {
 .App {
   font-family: "Cairo", Arial, sans-serif;
   text-align: left;
-  min-height: 77vh;
+  min-height: 100vh;
   color: white;
 }
 
@@ -64,9 +64,4 @@ body {
 .footer p {
   text-align: center;
   width: 100%;
-}
-.rowClass {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
