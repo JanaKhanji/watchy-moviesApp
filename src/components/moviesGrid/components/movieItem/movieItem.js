@@ -2,8 +2,8 @@
 
 import React from "react";
 import { Card } from "react-bootstrap";
-import imageSrc from "../assets/img/movie.png";
-import "./movieItem.css";
+import imageSrc from "../../../../assets/img/movie.png";
+import "./movieItem.scss";
 import { Link } from "react-router-dom";
 
 export default function MovieItem({ movie }) {
@@ -13,7 +13,7 @@ export default function MovieItem({ movie }) {
 
   return (
     <Link to={`/movieDetail/${movie.id}`}>
-      <Card className="container_foto m-1" style={{}}>
+      <Card className="container_foto m-1">
         <article>
           <h2>{movie.title}</h2>
         </article>

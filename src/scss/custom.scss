@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
+
+
+$light: #eee;
+$dark: #212121;
+$blue: #7F95D1;
+$dark-light: #414141;
+
+
+$body-bg: $dark;
+$body-color: $light;
+
+
+$theme-colors: (
+  "blue": $blue,
+  "light": $light,
+  "dark": $dark,
+  "dark-light": $dark-light,
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

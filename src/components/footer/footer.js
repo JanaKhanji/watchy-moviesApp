@@ -3,8 +3,8 @@ import { Navbar } from "react-bootstrap";
 
 export default function Footer() {
   return (
-    <Navbar sticky="bottom" className="footer">
-      <p>
+    <Navbar sticky="bottom" className="mt-3 px-2">
+      <div className="w-100 text-center text-light">
         Made by{" "}
         <a
           target="_blank"
@@ -13,7 +13,7 @@ export default function Footer() {
         >
           Jana Khanji
         </a>
-      </p>
+      </div>
     </Navbar>
   );
 }

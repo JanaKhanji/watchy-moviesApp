@@ -5,7 +5,7 @@ import imageSrc from "../../../assets/img/movie.png";
 export default function Casts({ casts }) {
   return (
     <div>
-        <h2 className="mainTitle white">Casts</h2>
+        <h2 className="text-light h2 border-bottom m-3">Casts</h2>
         <div className="d-flex flex-wrap justify-content-center">
             {casts.map((cast) => {
             return (
