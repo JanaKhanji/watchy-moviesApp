@@ -9,6 +9,7 @@ export default function Footer() {
         <a
           target="_blank"
           rel="noreferrer"
+          className="text-my-red"
           href="https://github.com/JanaKhanji"
         >
           Jana Khanji

@@ -50,7 +50,7 @@ export default function MovieItemComponent({ match }) {
           fetch(constructUrl("movie/" + match.params.id + "/credits", ""))
           .then((response) => response.json())
           .then((data) => {
-              observer.next(data.cast.slice(0, 8));
+              observer.next(data.cast.slice(0, 12));
               observer.complete();
             })
             .catch(err => observer.error(err));
@@ -59,7 +59,7 @@ export default function MovieItemComponent({ match }) {
           fetch(constructUrl("movie/" + match.params.id + "/similar", ""))
           .then((response) => response.json())
           .then((data) => {
-              observer.next(data.results.slice(0, 8));
+              observer.next(data.results.slice(0, 12));
               observer.complete();
             })
             .catch(err => observer.error(err));
@@ -81,7 +81,7 @@ export default function MovieItemComponent({ match }) {
     <div className="container">
       {data.loading ? (
         <div className="d-flex w-100 h-100 justify-content-center align-items-center">
-         <div className="spinner-border text-light" role="status"></div>
+         <div className="spinner-border text-light mt-5" role="status"></div>
         </div>
       ) : (
         data.error ? (

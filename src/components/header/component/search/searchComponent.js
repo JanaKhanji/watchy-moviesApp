@@ -46,7 +46,7 @@ export default function SearchComponent({handelBack}) {
   }
 
   return (
-    <Row>
+    <Row className="ml-sm-0 ml-md-auto" >
       <Col>
         <Form onSubmit={handleSubmit}>
           <Form.Control

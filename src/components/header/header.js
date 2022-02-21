@@ -19,7 +19,7 @@ export default function Header({ backHome }) {
       data.genres.forEach((element) => {
         genresHTML.push(
           <NavDropdown.Item
-            className="dropdownLink dropdown-item"
+            className="dropdownLink dropdown-item text-dark"
             onClick={() => {
               handelGenres(element);
               handelHistory();
@@ -59,22 +59,19 @@ export default function Header({ backHome }) {
   }
 
   return (
-    <Navbar className="bg-dark-light text-light py-1" variant="dark" expand="sm">
+    <Navbar className="bg-dark text-light py-1" variant="dark" expand="sm">
       <Navbar.Brand className="brandName" onClick={handelBack}>
         <Nav.Link to="/" className="h1 m-0 p-0 text-light">
-          wat<span style={{ color: "#7F95D1" }}>ch</span>y
+          wat<span className="text-my-red">ch</span>y
         </Nav.Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-        <Nav>
-          <Nav.Link to="/" onClick={handelBack}>
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="w-100">
+          <Nav.Link to="/" onClick={handelBack} className="text-light">
             Movies
           </Nav.Link>
-          <Nav.Link to="/" onClick={handelBack}>
-            Series
-          </Nav.Link>
-          <NavDropdown align="end" title="Genres" id="basic-nav-dropdown" className="ml-auto nav-link">
+          <NavDropdown title="Genres" id="basic-nav-dropdown" className="nav-link text-light">
             {genresHTML}
           </NavDropdown>
           <Search handelBack={handelBack} />

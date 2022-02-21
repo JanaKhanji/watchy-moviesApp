@@ -2,10 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
 
 
-$light: #eee;
-$dark: #212121;
-$blue: #7F95D1;
-$dark-light: #414141;
+$light: #fef4f4;
+$dark: #2e2828;
+$my-red: #f65151;
+$dark-light: #503a3a;
 
 
 $body-bg: $dark;
@@ -13,10 +13,14 @@ $body-color: $light;
 
 
 $theme-colors: (
-  "blue": $blue,
+  "my-red": $my-red,
   "light": $light,
   "dark": $dark,
   "dark-light": $dark-light,
 );
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgb(254	244	244 / 25%);
+}

@@ -18,7 +18,7 @@ export default function MovieItem({ movie }) {
           <h2>{movie.title}</h2>
         </article>
         <Card.Img variant="top" src={imgSrc} alt="movie poster" />
-        <div className="ver_mas text-center">
+        <div className="ver_mas text-center bg-my-red">
           <span className="lnr lnr-eye">see more</span>
         </div>
       </Card>
