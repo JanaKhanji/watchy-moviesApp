@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Form, Row, Col } from "react-bootstrap";
 import { constructUrl } from "../../../API";
-import "./searchComponent.css";
+import "./searchComponent.scss";
 import { useHistory } from "react-router-dom";
 import { StateContext } from "../../../../StateProvider";
 
@@ -21,12 +21,14 @@ export default function SearchComponent({handelBack}) {
   }
 
   function handleSubmit(event) {
-    console.log('submitted');
     const query = inputEl.current;
     if (event) {
       event.preventDefault();
     }
     if(inputEl.current) {
+      dispatch({
+        type: "SET_LOADING",
+      });
       fetch(constructUrl("search/movie", query))
       .then((response) => response.json())
       .then((data) => {
@@ -44,7 +46,7 @@ export default function SearchComponent({handelBack}) {
   }
 
   return (
-    <Row>
+    <Row className="ml-sm-0 ml-md-auto" >
       <Col>
         <Form onSubmit={handleSubmit}>
           <Form.Control

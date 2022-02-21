@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
+
+
+$light: #fef4f4;
+$dark: #2e2828;
+$my-red: #f65151;
+$dark-light: #503a3a;
+
+
+$body-bg: $dark;
+$body-color: $light;
+
+
+$theme-colors: (
+  "my-red": $my-red,
+  "light": $light,
+  "dark": $dark,
+  "dark-light": $dark-light,
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgb(254	244	244 / 25%);
+}

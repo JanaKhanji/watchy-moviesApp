@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import Search from "./component/search/searchComponent";
-import "./header.css";
+import "./header.scss";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { constructUrl, genresUrl } from "../API";
 import imageSrc from "../../assets/img/movie.png";
@@ -8,16 +8,18 @@ import { useHistory } from "react-router-dom";
 import { StateContext } from "../../StateProvider";
 
 export default function Header({ backHome }) {
-  let genresHTML = [];
+  const genresHTML = [];
   const [state, dispatch] = useContext(StateContext);
+  getData();
 
-  fetch(constructUrl("genre/movie/list", ""))
+  function getData() {
+    fetch(constructUrl("genre/movie/list", ""))
     .then((response) => response.json())
     .then((data) => {
       data.genres.forEach((element) => {
         genresHTML.push(
           <NavDropdown.Item
-            className="dropdownLink"
+            className="dropdownLink dropdown-item text-dark"
             onClick={() => {
               handelGenres(element);
               handelHistory();
@@ -29,6 +31,7 @@ export default function Header({ backHome }) {
         );
       });
     });
+  } 
 
   let history = useHistory();
   function handelHistory() {
@@ -41,41 +44,36 @@ export default function Header({ backHome }) {
   }
 
   function handelGenres(query) {
+    dispatch({
+      type: "SET_LOADING",
+    });
     fetch(genresUrl("discover/movie", query.id))
       .then((response) => response.json())
       .then((data) => {
         dispatch({
           type: "SET_MOVIES",
           movies: data.results,
-          title: query.name
+          title: query.name,
         });
       });
   }
+
   return (
-    <Navbar variant="dark" expand="lg">
+    <Navbar className="bg-dark text-light py-1" variant="dark" expand="sm">
       <Navbar.Brand className="brandName" onClick={handelBack}>
-        <Nav.Link to="/" className="white noDecoration">
-          <img
-            src={imageSrc}
-            width="30"
-            className="d-inline-block align-top "
-            alt="Movie App logo"
-          />{" "}
-          <span>w</span>at
-          <span style={{ color: "#ff0252" }}>ch</span>y
+        <Nav.Link to="/" className="h1 m-0 p-0 text-light">
+          wat<span className="text-my-red">ch</span>y
         </Nav.Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link to="/" onClick={handelBack} className="text-white">
-            Home
+        <Nav className="w-100">
+          <Nav.Link to="/" onClick={handelBack} className="text-light">
+            Movies
           </Nav.Link>
-          <NavDropdown title="Genres" id="basic-nav-dropdown" className="text-white mr-auto nav-link">
+          <NavDropdown title="Genres" id="basic-nav-dropdown" className="nav-link text-light">
             {genresHTML}
           </NavDropdown>
-        </Nav>
-        <Nav>
           <Search handelBack={handelBack} />
         </Nav>
       </Navbar.Collapse>

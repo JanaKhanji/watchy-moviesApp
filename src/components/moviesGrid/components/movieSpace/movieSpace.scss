@@ -1,0 +1,20 @@
+.custom-movieSpace-padding {
+    padding-bottom: 3rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+}
+
+.custom-movieSpace-overview {
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .custom-movieSpace-padding {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .custom-movieSpace-overview {
+        width: 100%;
+    }
+  }

@@ -23,14 +23,14 @@ export default function MovieDetail({ movieDetail }) {
                 }
               </p>
               <p> Status : {movieDetail.status}</p>
-              <p className="tags">
+              <p className="tags text-my-red">
                 {movieDetail.genres
                   .map((el) => {
                     return el.name;
                   })
                   .join(", ")}
               </p>
-              <footer className="blockquote-footer tags">
+              <footer className="blockquote-footer tags text-my-red">
                 Release date: {movieDetail.release_date}
               </footer>
             </div>

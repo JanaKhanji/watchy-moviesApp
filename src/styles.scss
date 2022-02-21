@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
+body {
+  /* background-image: radial-gradient(#4a5083, #161333);
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  background-color: #212121;
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  font-family: "Cairo", Arial, sans-serif;
+  text-align: left;
+  min-height: 100vh;
+  color: white;
+}
+
+/* footer */
+.footer {
+  margin-top: 20px;
+  border-top: 1px solid rgba(57, 62, 93, 0.7);
+  padding: 0;
+}
+.footer a {
+  color: white;
+}
+.footer p {
+  text-align: center;
+  width: 100%;
+}

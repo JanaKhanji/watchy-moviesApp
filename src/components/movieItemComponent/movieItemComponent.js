@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { forkJoin, Observable } from 'rxjs';
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Spinner } from "react-bootstrap";
 
 import { constructUrl } from "../API";
-import "./movieItemComponent.css";
-import Main from "../main";
+import "./movieItemComponent.scss";
 
+import MoviesGrid from "../moviesGrid/moviesGrid";
 import Trailer from './components/trailer';
 import MovieDetail from "./components/details";
 import Casts from "./components/cast";
@@ -16,6 +15,7 @@ export default function MovieItemComponent({ match }) {
   useEffect(getData, [match]);
   const [data, setData] = useState({
     loading : true,
+    error: false,
     movieDetail : null,
     cast: [],
     trailer: null,
@@ -50,7 +50,7 @@ export default function MovieItemComponent({ match }) {
           fetch(constructUrl("movie/" + match.params.id + "/credits", ""))
           .then((response) => response.json())
           .then((data) => {
-              observer.next(data.cast.slice(0, 6));
+              observer.next(data.cast.slice(0, 12));
               observer.complete();
             })
             .catch(err => observer.error(err));
@@ -59,14 +59,16 @@ export default function MovieItemComponent({ match }) {
           fetch(constructUrl("movie/" + match.params.id + "/similar", ""))
           .then((response) => response.json())
           .then((data) => {
-              observer.next(data.results.slice(0, 6));
+              observer.next(data.results.slice(0, 12));
               observer.complete();
             })
             .catch(err => observer.error(err));
         }),
       }
     ).subscribe( res => {
-      setData({ loading: false, ...res});
+      setData({ loading: false, error: false, ...res});
+    }, () => {
+      setData({ loading: false, error: true });
     });
   }
   
@@ -76,26 +78,35 @@ export default function MovieItemComponent({ match }) {
   }
 
   return (
-    <div className="movieDetail white container">
+    <div className="container">
       {data.loading ? (
         <div className="d-flex w-100 h-100 justify-content-center align-items-center">
-         <Spinner animation="border" role="status"></Spinner>
+         <div className="spinner-border text-light mt-5" role="status"></div>
         </div>
       ) : (
-        <div>
-        <div className="detailHeader">
-          <div className="mainTitle with-close py-2">
-            <Button variant="outline-light" className="mr-2" onClick={handelHistory}>
-              <FontAwesomeIcon  icon={['fas', 'arrow-left']} size="lg" />
-            </Button>
-            <h2 className="white mb-0 text-truncate"> {" " + data.movieDetail.title}</h2>
+        data.error ? (
+            <div>error</div>
+        ) : (
+          <div>
+            <div>
+              <div className="text-light h2 border-bottom m-3 d-flex align-items-center">
+                <button className="btn btn-flat-light mr-2 py-0 px-1" onClick={handelHistory}>
+                  <FontAwesomeIcon  icon={['fas', 'arrow-left']} size="lg" />
+                </button>
+                <h2 className="mb-0 text-truncate"> {data.movieDetail.title}</h2>
+              </div>
+            </div>
+            { data.movieDetail && <MovieDetail movieDetail={data.movieDetail}></MovieDetail>}
+            { data.trailer[0] && <Trailer trailer={data.trailer[0]}></Trailer> }
+            { data.cast.length !== 0 && <Casts casts={data.cast}></Casts>}
+            { data.similar.length !== 0 &&
+              <>
+               <h2 className="text-light h2 border-bottom m-3">Similar Movies</h2>
+               <MoviesGrid movies={data.similar} />
+              </>
+            }
           </div>
-        </div>
-        { data.movieDetail && <MovieDetail movieDetail={data.movieDetail}></MovieDetail>}
-        { data.trailer[0] && <Trailer trailer={data.trailer[0]}></Trailer> }
-        { data.cast && <Casts casts={data.cast}></Casts>}
-        { data.similar.length && <Main movies={data.similar} title="Similar Movies" /> }
-      </div>
+        )
       )}
     </div>
   );
