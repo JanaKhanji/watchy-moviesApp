@@ -50,7 +50,7 @@ export default function MovieItemComponent({ match }) {
           fetch(constructUrl("movie/" + match.params.id + "/credits", ""))
           .then((response) => response.json())
           .then((data) => {
-              observer.next(data.cast.slice(0, 12));
+              observer.next(data.cast.slice(0, 10));
               observer.complete();
             })
             .catch(err => observer.error(err));
@@ -59,7 +59,7 @@ export default function MovieItemComponent({ match }) {
           fetch(constructUrl("movie/" + match.params.id + "/similar", ""))
           .then((response) => response.json())
           .then((data) => {
-              observer.next(data.results.slice(0, 12));
+              observer.next(data.results.slice(0, 10));
               observer.complete();
             })
             .catch(err => observer.error(err));
