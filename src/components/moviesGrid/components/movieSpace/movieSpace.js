@@ -18,26 +18,29 @@ export default function MovieSpace({ movie }) {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'end',
+        justifyContent: 'center',
     }
 
   console.log(movie);
   return (
     <div className="w-100 mb-3" style={backgroundStyle}>
-      <div className="custom-movieSpace-padding">
-        <h1 className="text-my-red">{movie.title}</h1>
-        <p className="custom-movieSpace-overview mb-0">{movie.overview}</p>
-        <p className="mb-0">
-          {Array.from(Array(parseInt(movie.vote_average, 10)).keys()).map( el =>{
-              return (<FontAwesomeIcon  icon={['fas', 'star']} key={el} className="star" />)
-            })
-          }
-          {Array.from(Array(10 - parseInt(movie.vote_average, 10)).keys()).map( el =>{
-              return (<FontAwesomeIcon  icon={['far', 'star']} key={el} className="star" />)
-            })
-          }
-        </p>
-        <Link to={`/movieDetail/${movie.id}`} className="lnr lnr-eye text-my-red">see more</Link>
+      <div className="custom-movieSpace-padding d-flex">
+        <div class="d-flex flex-column justify-content-end">
+          <h1 className="text-my-red">{movie.title}</h1>
+          <p className="custom-movieSpace-overview mb-0">{movie.overview}</p>
+          <p className="mb-0">
+            {Array.from(Array(parseInt(movie.vote_average, 10)).keys()).map( el =>{
+                return (<FontAwesomeIcon  icon={['fas', 'star']} key={el} className="star" />)
+              })
+            }
+            {Array.from(Array(10 - parseInt(movie.vote_average, 10)).keys()).map( el =>{
+                return (<FontAwesomeIcon  icon={['far', 'star']} key={el} className="star" />)
+              })
+            }
+          </p>
+          <Link to={`/movieDetail/${movie.id}`} className="btn btn-my-red text-white mt-2">see more</Link>
+        </div>
+        <img className="d-none d-md-block custom-movieSpace-image" src={"http://image.tmdb.org/t/p/w200/" + movie.poster_path} alt="movie poster" />
       </div>
     </div>
     
