@@ -12,7 +12,7 @@ export default function MovieItem({ movie }) {
     (imgSrc = "http://image.tmdb.org/t/p/w200/" + movie.poster_path);
 
   return (
-    <Link to={`/movieDetail/${movie.id}`}>
+    <Link to={`/movie/${movie.id}`}>
       <Card className="container_foto m-1">
         <article>
           <h2>{movie.title}</h2>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from 'react-bootstrap';
-import imageSrc from "../../../assets/img/movie.png";
+import imageSrc from "../../assets/img/movie.png";
 
 export default function Casts({ casts }) {
   return (

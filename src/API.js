@@ -1,5 +1,4 @@
 const TMDB_BASE_URL = `https://api.themoviedb.org/3`;
-
 /*
 for movies :: path = "search/movie" 
 for genre :: path =  "genre/movie/list"
@@ -7,6 +6,7 @@ for trending :: path = "trending/movie/day"
 for credits :: path = "movie/{movie_id}/credits"
 https://api.themoviedb.org/3/discover/movie?apikey...&page=1&with_genres=14
 */
+
 export const constructUrl = (path, query) => {
   return `${TMDB_BASE_URL}/${path}?api_key=${atob(
     "ZDJmYTdhZDFlMjZhZjA4NDdkMzQ5ZDdkYmQ1ZjkzZTU="

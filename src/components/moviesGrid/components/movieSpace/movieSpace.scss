@@ -14,7 +14,9 @@
 
 .custom-movieSpace-image {
     height: fit-content;
+    filter: drop-shadow(0 0 0.75rem black);
 }
+
 
 @media only screen and (max-width: 600px) {
     .custom-movieSpace-padding {

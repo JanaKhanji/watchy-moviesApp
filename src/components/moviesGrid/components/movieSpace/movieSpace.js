@@ -2,6 +2,7 @@ import React from "react";
 import "./movieSpace.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import imageSrc from "../../../../assets/img/movie.png";
 
 export default function MovieSpace({ movie }) {
     const backgroundStyle = {
@@ -21,11 +22,10 @@ export default function MovieSpace({ movie }) {
         justifyContent: 'center',
     }
 
-  console.log(movie);
-  return (
+    return (
     <div className="w-100 mb-3" style={backgroundStyle}>
-      <div className="custom-movieSpace-padding d-flex">
-        <div class="d-flex flex-column justify-content-end">
+      <div className="custom-movieSpace-padding d-flex justify-content-between">
+        <div className="d-flex flex-column justify-content-end">
           <h1 className="text-my-red">{movie.title}</h1>
           <p className="custom-movieSpace-overview mb-0">{movie.overview}</p>
           <p className="mb-0">
@@ -38,9 +38,12 @@ export default function MovieSpace({ movie }) {
               })
             }
           </p>
-          <Link to={`/movieDetail/${movie.id}`} className="btn btn-my-red text-white mt-2">see more</Link>
+          <Link to={`/movie/${movie.id}`} className="btn btn-my-red text-white mt-2">see more</Link>
         </div>
-        <img className="d-none d-md-block custom-movieSpace-image" src={"http://image.tmdb.org/t/p/w200/" + movie.poster_path} alt="movie poster" />
+        <img
+          className="d-none d-md-block custom-movieSpace-image rounded"
+          src={movie.poster_path? "http://image.tmdb.org/t/p/w200/" + movie.poster_path : imageSrc}
+          alt="movie poster" />
       </div>
     </div>
     

@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import imageSrc from "../../../assets/img/movie.png";
+import imageSrc from "../../assets/img/movie.png";
 
 export default function MovieDetail({ movieDetail }) {
   return (

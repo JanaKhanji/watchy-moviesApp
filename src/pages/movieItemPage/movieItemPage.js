@@ -3,15 +3,15 @@ import { forkJoin, Observable } from 'rxjs';
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { constructUrl } from "../API";
-import "./movieItemComponent.scss";
+import { constructUrl } from "../../API";
+import "./movieItemPage.scss";
 
-import MoviesGrid from "../moviesGrid/moviesGrid";
-import Trailer from './components/trailer';
-import MovieDetail from "./components/details";
-import Casts from "./components/cast";
+import MoviesGrid from "../../components/moviesGrid/moviesGrid";
+import Trailer from '../../components/movieItemComponents/trailer';
+import MovieDetail from "../../components/movieItemComponents/details";
+import Casts from "../../components/movieItemComponents/cast";
 
-export default function MovieItemComponent({ match }) {
+export default function MovieItemPage({ match }) {
   useEffect(getData, [match]);
   const [data, setData] = useState({
     loading : true,
