@@ -2,7 +2,6 @@ import React from "react";
 import "./movieSpace.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import imageSrc from "../../../../assets/img/movie.png";
 
 export default function MovieSpace({ movie }) {
     const backgroundStyle = {
@@ -40,10 +39,6 @@ export default function MovieSpace({ movie }) {
           </p>
           <Link to={`/movie/${movie.id}`} className="btn btn-my-red text-white mt-2">see more</Link>
         </div>
-        <img
-          className="d-none d-md-block custom-movieSpace-image rounded"
-          src={movie.poster_path? "http://image.tmdb.org/t/p/w200/" + movie.poster_path : imageSrc}
-          alt="movie poster" />
       </div>
     </div>
     
