@@ -49,7 +49,7 @@ export default function Header() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="w-100">
           <Nav.Link to="/" onClick={handelBack} className="text-light">
-            Movies
+            Trending
           </Nav.Link>
           <NavDropdown title="Genres" id="basic-nav-dropdown" className="nav-link text-light">
             {genresHTML}
